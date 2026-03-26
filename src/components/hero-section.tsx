@@ -118,11 +118,27 @@ const ObjectsSection = () => {
 // --- 4. ЭТАПЫ РАБОТЫ ---
 const StepsSection = () => {
   const steps = [
-    { icon: <ClipboardCheck />, title: "Консультация", desc: "Обсуждаем ваш объект по телефону и делаем предварительный расчет." },
-    { icon: <Gauge />, title: "Замер и Аудит", desc: "Платный выезд инженера для анализа частот и подбора оборудования." },
-    { icon: <HardHat />, title: "Монтаж", desc: "Устанавливаем систему, настраиваем усиление и тестируем результат." },
-    { icon: <Smartphone />, title: "Результат", desc: "Вы принимаете работу: полная шкала связи во всем помещении." }
-  ];
+  { 
+    icon: <ClipboardCheck size={32} strokeWidth={1.5} />, 
+    title: "Консультация", 
+    desc: "Обсуждаем ваш объект по телефону и делаем предварительный расчет." 
+  },
+  { 
+    icon: <Gauge size={32} strokeWidth={1.5} />, 
+    title: "Замер и Аудит", 
+    desc: "Платный выезд инженера для анализа частот и подбора оборудования." 
+  },
+  { 
+    icon: <HardHat size={32} strokeWidth={1.5} />, 
+    title: "Монтаж", 
+    desc: "Устанавливаем систему, настраиваем усиление и тестируем результат." 
+  },
+  { 
+    icon: <Smartphone size={32} strokeWidth={1.5} />, 
+    title: "Результат", 
+    desc: "Вы принимаете работу: полная шкала связи во всем помещении." 
+  }
+];
   return (
     <section className="py-32 px-6 bg-[#030712] border-t border-white/5 relative z-10 text-left">
       <div className="max-w-6xl mx-auto">
@@ -139,7 +155,10 @@ const StepsSection = () => {
           {steps.map((step, i) => (
             <div key={i} className="relative z-10 opacity-50 hover:opacity-100 transition-opacity">
               <div className="w-20 h-20 rounded-3xl bg-slate-900 border border-white/5 flex items-center justify-center text-blue-500 mb-8">
-                {React.cloneElement(step.icon as React.ReactElement, { size: 32, strokeWidth: 1.5 })}
+                {/* Теперь просто выводим иконку, она уже нужного размера */}
+<div className="text-blue-500">
+  {step.icon}
+</div>
                 <div className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-slate-800 border border-white/10 flex items-center justify-center text-[10px] font-black text-white">0{i + 1}</div>
               </div>
               <h4 className="text-lg font-bold text-white mb-4 tracking-tight uppercase">{step.title}</h4>
